@@ -8,16 +8,16 @@ pipeline {
 			if (tfExisits) {
 			   echo "Terraform package already exisit hence skipping the installation and setup process..."
 			   echo "Distroying any old tf files if exist"
-			   sh "sudo rm -rf *.tf*"	
-			   sh "sudo rm -rf terraform*"	
+			   sh "sudo rm -rf $WORKSPACE/*.tf*"
+			   sh "sudo rm -rf $WORKSPACE/Terraform*"	
 			}else{
 			sh "cd /tmp"
 			sh "curl -o terraform.zip https://releases.hashicorp.com/terraform/0.12.8/terraform_0.12.8_linux_amd64.zip"
 			sh "unzip terraform.zip"
 			sh "sudo mv terraform /usr/bin"
 			sh "sudo rm -rf terraform.zip"
-			sh "sudo rm -rf *.tf*"
-			sh "sudo rm -rf Terraform*"
+			sh "sudo rm -rf $WORKSPACE/*.tf*"
+			sh "sudo rm -rf $WORKSPACE/Terraform*"
 			}
 		    }
 		}
