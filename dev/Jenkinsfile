@@ -38,5 +38,11 @@ pipeline {
                 sh "cd $WORKSPACE/dev ; terraform plan -out terraform.tfplan"
             }
         }
+	 stage('Invoke Terraform apply'){
+            steps{
+                sh "cd $WORKSPACE/dev ; terraform apply  terraform.tfplan"
+            }
+        }
+
     }
 }
